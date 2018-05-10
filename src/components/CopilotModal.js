@@ -220,18 +220,6 @@ class CopilotModal extends Component<Props, State> {
     const { tooltipComponent: TooltipComponent } = this.props;
 
     return [
-      <Animated.View
-        key="stepNumber"
-        style={[
-          styles.stepNumber,
-          {
-            left: this.state.animatedValues.stepNumberLeft,
-            top: Animated.add(this.state.animatedValues.top, -STEP_NUMBER_RADIUS),
-          },
-        ]}
-      >
-        <Text style={[styles.stepNumberText]}>{this.props.currentStepNumber}</Text>
-      </Animated.View>,
       <Animated.View key="arrow" style={[styles.arrow, this.state.arrow]} />,
       <Animated.View key="tooltip" style={[styles.tooltip, this.state.tooltip]}>
         <TooltipComponent
