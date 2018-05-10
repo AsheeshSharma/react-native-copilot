@@ -1,5 +1,5 @@
 {
-  "name": "@okgrow/react-native-copilot",
+  "name": "@okgrow/react-native-advanced-copilot",
   "version": "2.2.1",
   "description": "Make an interactive step by step tour guide for you react-native app",
   "main": "src/index.js",
