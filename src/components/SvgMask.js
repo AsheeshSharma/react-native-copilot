@@ -4,6 +4,7 @@ import {
   View,
   Animated,
   Easing,
+  TouchableWithoutFeedback,
 } from 'react-native';
 // import { Svg } from 'expo';
 import Svg from 'react-native-svg';
@@ -20,6 +21,8 @@ type Props = {
   easing: func,
   animationDuration: number,
   animated: boolean,
+  touchCallBack?: any,
+  handleStop?: any
 };
 
 type State = {
@@ -88,9 +91,14 @@ class SvgMask extends Component<Props, State> {
     });
   }
 
+  onHandlePress(evt) {
+    console.warn(`x coord = ${evt.nativeEvent.locationX}`, this.state.position)
+    this.props.touchCallback(evt, () => this.props.handleStop(), this.props.position)
+  }
+
   render() {
     return (
-      <View pointerEvents="box-none" style={this.props.style} onLayout={this.handleLayout}>
+      <TouchableWithoutFeedback onPress={(evt) => this.onHandlePress(evt)}  style={this.props.style} onLayout={this.handleLayout}><View pointerEvents="box-none" style={this.props.style} onLayout={this.handleLayout}>
         {
           this.state.canvasSize
             ? (
@@ -106,7 +114,7 @@ class SvgMask extends Component<Props, State> {
             )
             : null
         }
-      </View>
+      </View></TouchableWithoutFeedback>
     );
   }
 }

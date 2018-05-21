@@ -5,6 +5,7 @@ export type Step = {
   visible: boolean,
   target: React$Element,
   wrapper: React$Element,
+  touchCallBack?: any
 };
 
 export type CopilotContext = {

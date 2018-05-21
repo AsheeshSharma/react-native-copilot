@@ -8,7 +8,8 @@ type Props = {
   text: string,
   order: number,
   _copilot: CopilotContext,
-  children: React$Element
+  children: React$Element,
+  touchCallBack?: any
 };
 
 class ConnectedCopilotStep extends Component<Props> {
@@ -19,6 +20,7 @@ class ConnectedCopilotStep extends Component<Props> {
       order: this.props.order,
       target: this,
       wrapper: this.wrapper,
+      touchCallBack: this.props.touchCallBack
     });
   }
 

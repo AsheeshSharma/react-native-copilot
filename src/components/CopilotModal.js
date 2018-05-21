@@ -18,7 +18,7 @@ type Props = {
   animationDuration: ?number,
   tooltipComponent: ?React$Component,
   overlay: 'svg' | 'view',
-  animated: boolean,
+  animated: boolean
 };
 
 type State = {
@@ -202,7 +202,6 @@ class CopilotModal extends Component<Props, State> {
       ? require('./SvgMask').default
       : require('./ViewMask').default;
     /* eslint-enable */
-
     return (
       <MaskComponent
         animated={this.props.animated}
@@ -212,13 +211,15 @@ class CopilotModal extends Component<Props, State> {
         position={this.state.position}
         easing={this.props.easing}
         animationDuration={this.props.animationDuration}
+        touchCallback={this.props.currentStep.touchCallBack}
+        handleStop={this.handleStop}
       />
     );
   }
 
   renderTooltip() {
     const { tooltipComponent: TooltipComponent } = this.props;
-
+    // console.warn(this.props.currentStep)
     return [
       <Animated.View key="arrow" style={[styles.arrow, this.state.arrow]} />,
       <Animated.View key="tooltip" style={[styles.tooltip, this.state.tooltip]}>
@@ -237,7 +238,6 @@ class CopilotModal extends Component<Props, State> {
   render() {
     const containerVisible = this.state.containerVisible || this.props.visible;
     const contentVisible = this.state.layout && this.state.containerVisible && this.props.visible;
-
     return (
       <Modal
         animationType="none"

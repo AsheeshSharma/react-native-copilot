@@ -17,6 +17,8 @@ type Props = {
   easing: func,
   animationDuration: number,
   animated: boolean,
+  touchCallback?: any,
+  handleStop?: any
 };
 
 type State = {
