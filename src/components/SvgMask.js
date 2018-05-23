@@ -92,7 +92,7 @@ class SvgMask extends Component<Props, State> {
   }
 
   onHandlePress(evt) {
-    console.warn(`x coord = ${evt.nativeEvent.locationX}`, this.state.position)
+    // console.warn(`x coord = ${evt.nativeEvent.locationX}`, this.state.position)
     this.props.touchCallback(evt, () => this.props.handleStop(), this.props.position)
   }
 
